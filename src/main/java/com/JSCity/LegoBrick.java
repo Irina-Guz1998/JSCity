@@ -10,7 +10,7 @@ import eu.printingin3d.javascad.models.Abstract3dModel;
 import eu.printingin3d.javascad.models.Cube;
 import eu.printingin3d.javascad.models.Cylinder;
 import eu.printingin3d.javascad.tranzitions.Difference;
-import eu.printingin3d.javascad.tranzitions.Union;
+import eu.printingin3d.javascad.tranzitions.Union; 
 
 public class LegoBrick extends Union {
 	private static final double ONE_SEGMENT_WIDTH = 8.0;

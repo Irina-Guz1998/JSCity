@@ -1,22 +1,19 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import eu.printingin3d.javascad.coords.Coords3d;
 import eu.printingin3d.javascad.coords.Dims3d;
 import eu.printingin3d.javascad.enums.Side;
-import eu.printingin3d.javascad.models.Abstract3dModel;
-import eu.printingin3d.javascad.models.Cube;
-import eu.printingin3d.javascad.models.Cylinder;
+import eu.printingin3d.javascad.models.*;
 import eu.printingin3d.javascad.tranzitions.Difference;
 import eu.printingin3d.javascad.tranzitions.Union;
 
 public class TrainStation extends Union {
-	private static final double ONE_SEGMENT_WIDTH = 100.0;
-	private static final double HEIGHT = 10;
-	private static final double HORIZONTAL_GAP = 2*0.1;
-	private static final double WALL_THICKNESS = 1.5;
+	private static final double WIDTH = 40.0;
+	private static final double HEIGHT = 40;
 	private static final double AXLE_INNER_DIAMETER = 4.75;
 	private static final double AXLE_OUTER_DIAMETER = 6.51;
 	private static final double AXLE_ONE_DIAMETER = 3.0;
@@ -29,11 +26,31 @@ public class TrainStation extends Union {
 
 	private static List<Abstract3dModel> getModels(int xSize, int ySize) {
 		List<Abstract3dModel> models = new ArrayList<>();
-		Difference base = new Difference(
-						new Cube(new Dims3d(ONE_SEGMENT_WIDTH*xSize-HORIZONTAL_GAP, ONE_SEGMENT_WIDTH*ySize-HORIZONTAL_GAP, HEIGHT)),
-						new Cube(new Dims3d(ONE_SEGMENT_WIDTH*xSize-HORIZONTAL_GAP-WALL_THICKNESS*2, ONE_SEGMENT_WIDTH*ySize-HORIZONTAL_GAP-WALL_THICKNESS*2, HEIGHT-WALL_THICKNESS)).move(Coords3d.zOnly(-WALL_THICKNESS))
+		//Главный зал
+		Difference generalBuilding = new Difference(
+						new Cube(new Dims3d(WIDTH*xSize, WIDTH, HEIGHT))
 				);
-		models.add(base);
+		//Боковые постройки от главного входа
+		Difference sideBuildings = new Difference(
+				new Cube(new Dims3d(WIDTH*xSize, WIDTH, HEIGHT))
+		);
+		//Башни между боковыми постройками и главным зданием
+		Difference tower = new Difference(
+				new Cube(new Dims3d(WIDTH*0.5, WIDTH, HEIGHT*1.5)).move(Coords3d.zOnly(-10))
+		);
+
+		Difference onTower = new Difference(
+				new Cube(new Dims3d(WIDTH*0.5, WIDTH/2, HEIGHT/2)).move(Coords3d.zOnly(-50)).move(Coords3d.yOnly(10))
+		);
+
+
+		models.add(generalBuilding);
+		models.add(onTower.move(Coords3d.xOnly(55)));
+		models.add(onTower.move(Coords3d.xOnly(-55)));
+		models.add(tower.move(Coords3d.xOnly(55)));
+		models.add(tower.move(Coords3d.xOnly(-55)));
+		models.add(sideBuildings.move(Coords3d.xOnly(110)));
+		models.add(sideBuildings.move(Coords3d.xOnly(-110)));
 		//models.add(getKnobs(base, xSize, ySize));
 		return models;
 	}

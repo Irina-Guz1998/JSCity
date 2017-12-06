@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import eu.printingin3d.javascad.coords.Angles3d;
 import eu.printingin3d.javascad.coords.Coords3d;
 import eu.printingin3d.javascad.coords.Dims3d;
 import eu.printingin3d.javascad.coords.Triangle3d;
@@ -31,8 +32,10 @@ public class TrainStation extends Union {
 		List<Abstract3dModel> models = new ArrayList<>();
 		//Главный зал
 		Difference generalBuilding = new Difference(
-						new Cube(new Dims3d(WIDTH*xSize, WIDTH*0.6, HEIGHT)).move(Coords3d.yOnly(-8)),
-						new Cube(new Dims3d(WIDTH*0.4, WIDTH/2, HEIGHT/2)).move(Coords3d.yOnly(-4)).move(Coords3d.zOnly(8))
+						new Cube(new Dims3d(WIDTH*xSize, WIDTH*0.6, HEIGHT*1.5)).move(Coords3d.yOnly(-8)).move(Coords3d.zOnly(-10)),
+						new Cube(new Dims3d(WIDTH*0.6, WIDTH/2, HEIGHT/2)).move(Coords3d.yOnly(-4)).move(Coords3d.zOnly(8)),
+						new Sphere(10),
+						new Sphere(5).move(Coords3d.zOnly(-20))
 				);
 		//Боковые постройки от главного входа
 		Difference sideBuildings = new Difference(
@@ -53,6 +56,17 @@ public class TrainStation extends Union {
 
 		Difference floor = new Difference(
 				new Cube(new Dims3d(WIDTH*7, WIDTH, HEIGHT/50)).move(Coords3d.zOnly(20))
+		);
+
+		Difference roofGenereal = new Difference(
+				new Cube(new Dims3d(WIDTH, WIDTH/3, HEIGHT)).move(Coords3d.zOnly(-35)).rotate(Angles3d.yOnly(45)).move(Coords3d.xOnly(24)).move(Coords3d.yOnly(-10)),
+				new Cube(new Dims3d(WIDTH*2, WIDTH, HEIGHT)).move(Coords3d.zOnly(2))
+		);
+
+		Difference roofGenereal2 = new Difference(
+				new Cube(new Dims3d(WIDTH*3.1, WIDTH*1.5, HEIGHT/50)).move(Coords3d.zOnly(-40)).move(Coords3d.yOnly(10)),
+				new Cube(new Dims3d(WIDTH*4,20,20)).move(Coords3d.zOnly(-40)).move(Coords3d.yOnly(35)),
+				new Cube(new Dims3d(WIDTH*1.8,20,20)).move(Coords3d.zOnly(-40)).move(Coords3d.yOnly(17))
 		);
 
 		//Башни между боковыми постройками и главным зданием
@@ -90,6 +104,8 @@ public class TrainStation extends Union {
 
 		models.add(generalBuilding);
 		models.add(floor);
+		models.add(roofGenereal);
+		models.add(roofGenereal2);
 		models.add(sideUp.move(Coords3d.xOnly(100)));
 		models.add(sideUp.move(Coords3d.xOnly(-100)));
 		models.add(stair);

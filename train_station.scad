@@ -5,6 +5,7 @@ translate([0,-4,8])cube([24,20,20],center=true);
 sphere(r=10);
 translate([0,0,-20])sphere(r=5);
 }translate([0,0,20])cube([280,40,0.8],center=true);
+translate([0,3.5,-22])cube([0.5,0.5,4],center=true);
 difference(){translate([-0.7487,-10,-24.7487])rotate([0,45,0])cube([40,13.3333,40],center=true);
 translate([0,0,2])cube([80,40,40],center=true);
 }difference(){translate([0,10,-40])cube([124,60,0.8],center=true);

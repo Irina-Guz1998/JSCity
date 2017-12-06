@@ -63,6 +63,11 @@ public class TrainStation extends Union {
 				new Cube(new Dims3d(WIDTH*2, WIDTH, HEIGHT)).move(Coords3d.zOnly(2))
 		);
 
+		Difference clock = new Difference(
+				new Cube(new Dims3d(0.5, 0.5, 4)).move(Coords3d.zOnly(-22)).move(Coords3d.yOnly(3.5))
+
+		);
+
 		Difference roofGenereal2 = new Difference(
 				new Cube(new Dims3d(WIDTH*3.1, WIDTH*1.5, HEIGHT/50)).move(Coords3d.zOnly(-40)).move(Coords3d.yOnly(10)),
 				new Cube(new Dims3d(WIDTH*4,20,20)).move(Coords3d.zOnly(-40)).move(Coords3d.yOnly(35)),
@@ -104,6 +109,7 @@ public class TrainStation extends Union {
 
 		models.add(generalBuilding);
 		models.add(floor);
+		models.add(clock);
 		models.add(roofGenereal);
 		models.add(roofGenereal2);
 		models.add(sideUp.move(Coords3d.xOnly(100)));

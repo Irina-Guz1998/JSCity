@@ -7,7 +7,6 @@ import eu.printingin3d.javascad.exceptions.IllegalValueException;
 import eu.printingin3d.javascad.utils.SaveScadFiles;
 
 public class Main {
-
     /**
      * @param args
      * @throws IOException
@@ -15,7 +14,7 @@ public class Main {
      */
     public static void main(String[] args) throws IllegalValueException, IOException {
         new SaveScadFiles(new File(".\\target")).
-                addModel("HC_building.scad", new LegoBrick(1, 2)).
+                addModel("HC_building.scad", new HC_building()).
                 saveScadFiles();
     }
 }

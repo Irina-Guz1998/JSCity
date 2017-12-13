@@ -31,7 +31,7 @@ public class TrainStation extends Union {
 						new Cube(new Dims3d(WIDTH*2, WIDTH*0.6, HEIGHT*1.5)).move(Coords3d.yOnly(-8)).move(Coords3d.zOnly(-10)),
 						new Cube(new Dims3d(WIDTH*0.6, WIDTH/2, HEIGHT/2)).move(Coords3d.yOnly(-4)).move(Coords3d.zOnly(8)),
 						new Sphere(10),
-						new Sphere(5).move(Coords3d.zOnly(-20))
+						new Cylinder(HEIGHT/4.9,2).rotate(Angles3d.xOnly(90)).move(Coords3d.zOnly(-20))
 				);
 		//Боковые постройки от главного входа
 		Difference sideBuildings = new Difference(

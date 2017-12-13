@@ -16,30 +16,26 @@ import eu.printingin3d.javascad.tranzitions.Union;
 public class TrainStation extends Union {
 	private static final double WIDTH = 40.0;
 	private static final double HEIGHT = 40;
-	private static final double AXLE_INNER_DIAMETER = 4.75;
-	private static final double AXLE_OUTER_DIAMETER = 6.51;
-	private static final double AXLE_ONE_DIAMETER = 3.0;
 	private static final double KNOB_DIAMETER = 4;
-	private static final double KNOB_HEIGTH = 1.8;
 	
-	public TrainStation(int xSize, int ySize) {
-		super(getModels(xSize, ySize));
+	public TrainStation() {
+		super(getModels());
 	}
 
 
 
-	private static List<Abstract3dModel> getModels(int xSize, int ySize) {
+	private static List<Abstract3dModel> getModels() {
 		List<Abstract3dModel> models = new ArrayList<>();
 		//Главный зал
 		Difference generalBuilding = new Difference(
-						new Cube(new Dims3d(WIDTH*xSize, WIDTH*0.6, HEIGHT*1.5)).move(Coords3d.yOnly(-8)).move(Coords3d.zOnly(-10)),
+						new Cube(new Dims3d(WIDTH*2, WIDTH*0.6, HEIGHT*1.5)).move(Coords3d.yOnly(-8)).move(Coords3d.zOnly(-10)),
 						new Cube(new Dims3d(WIDTH*0.6, WIDTH/2, HEIGHT/2)).move(Coords3d.yOnly(-4)).move(Coords3d.zOnly(8)),
 						new Sphere(10),
 						new Sphere(5).move(Coords3d.zOnly(-20))
 				);
 		//Боковые постройки от главного входа
 		Difference sideBuildings = new Difference(
-				new Cube(new Dims3d(WIDTH*xSize, WIDTH*0.6, HEIGHT)).move(Coords3d.yOnly(-8)),
+				new Cube(new Dims3d(WIDTH*2, WIDTH*0.6, HEIGHT)).move(Coords3d.yOnly(-8)),
 				new Cube(new Dims3d(WIDTH/4, WIDTH*0.8, HEIGHT/3)).move(Coords3d.xOnly(27)).move(Coords3d.zOnly(-8)),
 				new Cube(new Dims3d(WIDTH/4, WIDTH*0.8, HEIGHT/3)).move(Coords3d.xOnly(8)).move(Coords3d.zOnly(-8)),
 				new Cube(new Dims3d(WIDTH/4, WIDTH*0.8, HEIGHT/3)).move(Coords3d.xOnly(-27)).move(Coords3d.zOnly(-8)),
@@ -51,7 +47,7 @@ public class TrainStation extends Union {
 		);
 
 		Difference roofSideBuildings = new Difference(
-				new Cube(new Dims3d(WIDTH*xSize, WIDTH, HEIGHT/50)).move(Coords3d.zOnly(-20))
+				new Cube(new Dims3d(WIDTH*2, WIDTH, HEIGHT/50)).move(Coords3d.zOnly(-20))
 		);
 
 		Difference floor = new Difference(
@@ -84,23 +80,23 @@ public class TrainStation extends Union {
 		);
 
 		Difference stair = new Difference(
-				new Cube(new Dims3d(WIDTH*xSize, WIDTH*0.6, HEIGHT/50)).move(Coords3d.yOnly(8)).move(Coords3d.zOnly(19.5))
+				new Cube(new Dims3d(WIDTH*2, WIDTH*0.6, HEIGHT/50)).move(Coords3d.yOnly(8)).move(Coords3d.zOnly(19.5))
 		);
 
 		Difference stair2 = new Difference(
-				new Cube(new Dims3d(WIDTH*xSize, WIDTH*0.6, HEIGHT/50)).move(Coords3d.yOnly(6)).move(Coords3d.zOnly(19))
+				new Cube(new Dims3d(WIDTH*2, WIDTH*0.6, HEIGHT/50)).move(Coords3d.yOnly(6)).move(Coords3d.zOnly(19))
 		);
 
 		Difference stair3 = new Difference(
-				new Cube(new Dims3d(WIDTH*xSize, WIDTH*0.6, HEIGHT/50)).move(Coords3d.yOnly(4)).move(Coords3d.zOnly(18.5))
+				new Cube(new Dims3d(WIDTH*2, WIDTH*0.6, HEIGHT/50)).move(Coords3d.yOnly(4)).move(Coords3d.zOnly(18.5))
 		);
 
 		Difference stair4 = new Difference(
-				new Cube(new Dims3d(WIDTH*xSize, WIDTH*0.6, HEIGHT/50)).move(Coords3d.yOnly(2)).move(Coords3d.zOnly(18))
+				new Cube(new Dims3d(WIDTH*2, WIDTH*0.6, HEIGHT/50)).move(Coords3d.yOnly(2)).move(Coords3d.zOnly(18))
 		);
 
 		Difference sideUp = new Difference(
-				new Cube(new Dims3d(WIDTH*xSize, WIDTH*0.6, 3.2)).move(Coords3d.yOnly(8)).move(Coords3d.zOnly(18))
+				new Cube(new Dims3d(WIDTH*2, WIDTH*0.6, 3.2)).move(Coords3d.yOnly(8)).move(Coords3d.zOnly(18))
 		);
 
 		Difference colon = new Difference(
@@ -136,33 +132,7 @@ public class TrainStation extends Union {
 		models.add(tower.move(Coords3d.xOnly(-50)));
 		models.add(sideBuildings.move(Coords3d.xOnly(100)));
 		models.add(sideBuildings.move(Coords3d.xOnly(-100)));
-		//models.add(getKnobs(base, xSize, ySize));
 		return models;
 	}
 
-	// Из этого потом сделаю колоны
-	/*private static Abstract3dModel getKnobs(Abstract3dModel base, int xSize, int ySize) {
-		List<Coords3d> moves = new ArrayList<>();
-		for (int x=0;x<xSize;x++) {
-			for (int y=0;y<ySize;y++) {
-				moves.add(new Coords3d((x-(xSize-1.0)/2.0)*ONE_SEGMENT_WIDTH, (y-(ySize-1.0)/2.0)*ONE_SEGMENT_WIDTH, 0.0));
-			}
-		}
-		return getKnob(base).moves(moves);
-	}
-
-	private static Abstract3dModel getKnob(Abstract3dModel base) {
-		return new Cylinder(KNOB_HEIGTH, KNOB_DIAMETER/2.0);
-	}
-	*/
-	private static Abstract3dModel getAxle() {
-		return new Difference(
-				new Cylinder(HEIGHT, AXLE_OUTER_DIAMETER/2.0),
-				new Cylinder(HEIGHT, AXLE_INNER_DIAMETER/2.0).move(Coords3d.zOnly(-0.01))
-		);
-	}
-	
-	private static Abstract3dModel getAxleOne() {
-		return new Cylinder(HEIGHT, AXLE_ONE_DIAMETER/2.0);
-	}
 }

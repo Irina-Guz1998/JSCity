@@ -1,9 +1,17 @@
 $fs=0.25;$fa=6;
 union() {
-difference(){translate([0,-8,0])cube([80,24,40],center=true);
-translate([0,-4,8])cube([16,20,20],center=true);
+difference(){translate([0,-8,-10])cube([80,24,60],center=true);
+translate([0,-4,8])cube([24,20,20],center=true);
+sphere(r=10);
+translate([0,0,-20])rotate([90,0,0])cylinder(h=8.1633, r=2, center=true);
 }translate([0,0,20])cube([280,40,0.8],center=true);
-translate([100,0,0])translate([0,8,18])cube([80,24,3.2],center=true);
+translate([0,3.5,-22])cube([0.5,0.5,4],center=true);
+difference(){translate([-0.7487,-10,-24.7487])rotate([0,45,0])cube([40,13.3333,40],center=true);
+translate([0,0,2])cube([80,40,40],center=true);
+}difference(){translate([0,10,-40])cube([124,60,0.8],center=true);
+translate([0,35,-40])cube([160,20,20],center=true);
+translate([0,17,-40])cube([72,20,20],center=true);
+}translate([100,0,0])translate([0,8,18])cube([80,24,3.2],center=true);
 translate([-100,0,0])translate([0,8,18])cube([80,24,3.2],center=true);
 translate([0,8,19.5])cube([80,24,0.8],center=true);
 translate([0,6,19])cube([80,24,0.8],center=true);

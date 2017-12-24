@@ -27,7 +27,7 @@ public class LegoBrick extends Union {
 
 
 	private static List<Abstract3dModel> getModels() {
-		List<Abstract3dModel> models = new ArrayList<>();
+		List<Abstract3dModel> models = new ArrayList();
 		//боковые части
 		Difference generalBuilding1 = new Difference(
 				new Cube(new Dims3d(WIDTH, LENGTH, HEIGHT)),//.move(Coords3d.yOnly(-8)).move(Coords3d.zOnly(-10)),

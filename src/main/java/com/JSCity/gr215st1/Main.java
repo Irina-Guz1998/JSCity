@@ -13,7 +13,7 @@ public class Main {
      * @throws IllegalValueException
      */
     public static void main(String[] args) throws IllegalValueException, IOException {
-        new SaveScadFiles(new File(".\\target")).
+        new SaveScadFiles(new File("./target")).
                 addModel("Hotel.scad", new Hotel()).
                 saveScadFiles();
     }

@@ -15,7 +15,7 @@ public class Main {
      */
     public static void main(String[] args) throws IllegalValueException, IOException {
         new SaveScadFiles(new File(".\\target")).
-                addModel("lego_brick.scad", new LegoBrick(1, 6)).
+                addModel("building.scad", new building()).
                 saveScadFiles();
     }
 }

@@ -1,4 +1,4 @@
-package com.JSCity;
+package com.JSCity.gr215st25;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,8 +17,5 @@ public class Main {
         new SaveScadFiles(new File(".\\target")).
                 addModel("lego_brick.scad", new LegoBrick(1, 6)).
                 saveScadFiles();
-        System.out.println("LegoBrick was created!");
-        System.out.println("You can find it in \"target\" directory");
-
     }
 }

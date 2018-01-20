@@ -1,4 +1,4 @@
-package com.company;
+package com.building.gr2l5st27;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,8 +14,8 @@ public class Main {
      * @throws IllegalValueException
      */
     public static void main(String[] args) throws IllegalValueException, IOException {
-        new SaveScadFiles(new File("E:\\javaDeveloping")).
-                addModel("train_station.scad", new TrainStation()).
+        new SaveScadFiles(new File("./target")).
+                addModel("building_gr2l5st27.scad", new Building()).
                 saveScadFiles();
     }
 }

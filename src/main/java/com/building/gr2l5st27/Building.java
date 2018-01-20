@@ -1,4 +1,4 @@
-package com.company;
+package com.building.gr2l5st27;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -13,19 +13,19 @@ import eu.printingin3d.javascad.models.*;
 import eu.printingin3d.javascad.tranzitions.Difference;
 import eu.printingin3d.javascad.tranzitions.Union;
 
-public class TrainStation extends Union {
+public class Building extends Union {
 	private static final double WIDTH = 40.0;
 	private static final double HEIGHT = 40;
 	private static final double KNOB_DIAMETER = 4;
 	
-	public TrainStation() {
+	public Building() {
 		super(getModels());
 	}
 
 
 
 	private static List<Abstract3dModel> getModels() {
-		List<Abstract3dModel> models = new ArrayList<>();
+		List<Abstract3dModel> models = new ArrayList();
 		//Главный зал
 		Difference generalBuilding = new Difference(
 						new Cube(new Dims3d(WIDTH*2, WIDTH*0.6, HEIGHT*1.5)).move(Coords3d.yOnly(-8)).move(Coords3d.zOnly(-10)),

@@ -1,4 +1,4 @@
-package com.JSCity.gr215st19;
+package com.JSCity.gr215st6;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,7 +13,7 @@ public class Main {
      * @throws IllegalValueException
      */
     public static void main(String[] args) throws IllegalValueException, IOException {
-        new SaveScadFiles(new File(".\\target")).
+        new SaveScadFiles(new File("./target")).
                 addModel("building.scad", new building()).
                 saveScadFiles();
     }

@@ -1,14 +1,10 @@
 package com.building.gr2l5st22;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
-import eu.printingin3d.javascad.coords.Angles3d;
 import eu.printingin3d.javascad.coords.Coords3d;
 import eu.printingin3d.javascad.coords.Dims3d;
-import eu.printingin3d.javascad.coords.Triangle3d;
-import eu.printingin3d.javascad.enums.Side;
 import eu.printingin3d.javascad.models.*;
 import eu.printingin3d.javascad.tranzitions.Difference;
 import eu.printingin3d.javascad.tranzitions.Union;

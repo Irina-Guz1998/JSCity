@@ -17,7 +17,7 @@ public class Main {
         new SaveScadFiles(new File("./target")).
                 addModel("building_gr2l5st23.scad", new LegoBrick()).
                 saveScadFiles();
-        System.out.println("LegoBrick was created!");
+        System.out.println("Building was created!");
         System.out.println("You can find it in \"target\" directory");
 
     }

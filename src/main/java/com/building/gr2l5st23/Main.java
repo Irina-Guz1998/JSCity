@@ -15,9 +15,9 @@ public class Main {
      */
     public static void main(String[] args) throws IllegalValueException, IOException {
         new SaveScadFiles(new File("./target")).
-                addModel("building_gr2l5st23.scad", new LegoBrick()).
+                addModel("building_gr2l5st23.scad", new Building()).
                 saveScadFiles();
-        System.out.println("LegoBrick was created!");
+        System.out.println("Building was created!");
         System.out.println("You can find it in \"target\" directory");
 
     }

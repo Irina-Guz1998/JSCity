@@ -10,12 +10,12 @@ import eu.printingin3d.javascad.models.*;
 import eu.printingin3d.javascad.tranzitions.Difference;
 import eu.printingin3d.javascad.tranzitions.Union;
 
-public class LegoBrick extends Union {
+public class Building extends Union {
     private static final double WIDTH = 75.0;
     private static final double HEIGHT = 60;
     private static final double KNOB_DIAMETER = 4;
 
-    public LegoBrick() {
+    public Building() {
         super(getModels());
     }
 

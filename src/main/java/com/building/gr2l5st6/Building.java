@@ -1,4 +1,4 @@
-package com.JSCity.gr215st6;
+package com.building.gr2l5st6;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,12 +10,12 @@ import eu.printingin3d.javascad.models.*;
 import eu.printingin3d.javascad.tranzitions.Difference;
 import eu.printingin3d.javascad.tranzitions.Union;
 
-class HC_building extends Union {
+class Building extends Union {
     private static final int myCoords1[] = {-133, -67, 0, 67, 133};
     private static final int myCoords2[] = {-80, -20, 40};
     private static int myCoords3 = -100;
 
-    HC_building() { super(getModels()); }
+    Building() { super(getModels()); }
 
     private static List<Abstract3dModel> getModels() {
         //полная модель

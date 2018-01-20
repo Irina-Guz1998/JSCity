@@ -1,4 +1,4 @@
-package com.JSCity.gr215st6;
+package com.building.gr2l5st6;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,7 +14,7 @@ public class Main {
      */
     public static void main(String[] args) throws IllegalValueException, IOException {
         new SaveScadFiles(new File("./target")).
-                addModel("HC_building.scad", new HC_building()).
+                addModel("building_gr2l5st6.scad", new Building()).
                 saveScadFiles();
     }
 }

@@ -14,7 +14,7 @@ public class Main {
      */
     public static void main(String[] args) throws IllegalValueException, IOException {
         new SaveScadFiles(new File("./target")).
-                addModel("building_gr2l5st18.scad", new building()).
+                addModel("building_gr2l5st18.scad", new Building()).
                 saveScadFiles();
     }
 }

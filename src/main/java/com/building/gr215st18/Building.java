@@ -9,8 +9,8 @@ import eu.printingin3d.javascad.models.*;
 import eu.printingin3d.javascad.tranzitions.Difference;
 import eu.printingin3d.javascad.tranzitions.Union;
 
-class building extends Union {
-    building() {
+class Building extends Union {
+    Building() {
         super(getModels());
     }
 

@@ -1,4 +1,4 @@
-package com.company;
+package com.building.gr2l5st26;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -13,7 +13,7 @@ import eu.printingin3d.javascad.models.*;
 import eu.printingin3d.javascad.tranzitions.Difference;
 import eu.printingin3d.javascad.tranzitions.Union;
 
-public class Yavornitskiy extends Union {
+public class Building extends Union {
 	private static final double WIDTH = 40.0;
 	private static final double HEIGHT = 50;
 	private static final double AXLE_INNER_DIAMETER = 4.75;
@@ -22,14 +22,14 @@ public class Yavornitskiy extends Union {
 	private static final double KNOB_RADIUS = 8;
 	private static final double KNOT_RADIUS = 0;
 
-	public Yavornitskiy(int xSize, int ySize) {
+	public Building(int xSize, int ySize) {
 		super(getModels(xSize, ySize));
 	}
 
 
 
 	private static List<Abstract3dModel> getModels(int xSize, int ySize) {
-		List<Abstract3dModel> models = new ArrayList<>();
+		List<Abstract3dModel> models = new ArrayList();
 
 		Difference Tower = new Difference(
 				new Cube(new Dims3d(30, 50 , 70)).move(Coords3d.xOnly(15)).move(Coords3d.yOnly(25)).move(Coords3d.zOnly(35)),
